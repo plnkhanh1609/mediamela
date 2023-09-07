@@ -87,6 +87,44 @@
     </div>
   </div>
 
+  <!--  choices.js 10 [nice-select2]-->
+  <script src="https://cdn.jsdelivr.net/npm/choices.js@10/public/assets/scripts/choices.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/choices.js@10/public/assets/styles/choices.min.css" rel="stylesheet">
+
+  <select class="js-choice">
+    <option value="">444</option>
+    <option>111</option>
+    <option>222</option>
+    <option>333</option>
+  </select>
+  <script>
+    new Choices('.js-choice');
+  </script>
+
+
+
+  <!--  floating-ui.dom 1 -->
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1/dist/floating-ui.core.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1/dist/floating-ui.dom.umd.min.js"></script>
+  <div>
+    <button onmouseenter="popper(this)" onmouseleave="popper(this, false)">My button</button>
+    <div class="absolute max-w-max transition-opacity duration-300 ease-in-out popper bg-blue-500 text-white p-2 rounded" style="opacity: 0">My tooltip</div>
+  </div>
+
+  <script>
+    function popper (e, show = true,popper = '.popper') {
+      const tooltip = e.parentElement.querySelector(popper);
+      window.FloatingUIDOM.computePosition(e, tooltip, {
+        placement: 'right',
+      }).then(({x, y}) => {
+        Object.assign(tooltip.style, {
+          left: show ? `${x}px` : '-1000px',
+          top: show ? `${y}px` : '-1000px',
+          opacity: show ? 100 : 0,
+        });
+      });
+    }
+  </script>
 
   <!--  glightbox 3  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3/dist/css/glightbox.min.css" />
