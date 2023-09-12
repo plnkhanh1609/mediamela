@@ -2,98 +2,29 @@ import './index.less'
 // vanilla-lazyload 17
 new LazyLoad({callback_error: (el: any) => (el.src = 'https://via.placeholder.com/440x560/?text=Error') });
 
-// gsap 3
-import {animationSlide} from "./gasp.ts";
-
 // swiper 10
-new Swiper(".mySwiper", {
-  loop: true,
-  spaceBetween: 0,
-  slidesPerView: 1,
-  effect: 'fade',
-  pagination: {
-    el: ".swiper-pagination",
-  },
-  navigation: {
-    nextEl: "#home-right",
-    prevEl: "#home-left",
-  },
-  on: {
-    init: (el: any) => animationSlide(el.slides[el.activeIndex], 0),
-    slideChangeTransitionEnd: (el: any) => animationSlide(el.slides[el.activeIndex], 0),
-  },
-});
+import {setupSwiper } from './swiper.ts';
+setupSwiper();
+
+import {setupMenuMobile } from './menu-mobile.ts';
+setupMenuMobile(document.getElementsByClassName('handle-menu'));
+
+Array.from(document.getElementsByClassName('handle-dialog')).forEach((el) => el.addEventListener('click', () =>  {
+  const temp = document.getElementsByTagName("template")[0];
+  const item = temp.content.querySelector("div");
+  if (item) {
+    const a = document.importNode(item, true);
+    a.innerHTML = a.innerHTML.replace(/{{test}}/g, 'TEST')
+    Message.html(a.innerHTML);
+  }
+}))
 
 // glightbox 3
 GLightbox({});
 
 // echarts 5
-const myChart = echarts.init(document.getElementById('echarts'), null, {
-  renderer: 'svg',
-  useDirtyRect: false
-});
-myChart.setOption({
-  tooltip: {
-    trigger: 'axis',
-  },
-  grid: {
-    top: '40px',
-    left: '90px',
-    bottom: '30px',
-    right: '50px',
-  },
-  legend: { show: false },
-  xAxis: {
-    type: 'category',
-    boundaryGap: true,
-    axisLabel: {
-      show: true,
-    },
-    axisLine: {
-      show: true,
-      lineStyle: {
-        color: '#000000',
-      },
-    },
-    splitLine: {
-      show: false,
-    },
-    axisTick: {
-      show: true,
-      lineStyle: {
-        color: '#000000',
-      },
-    },
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-  },
-  yAxis: {
-    show: true,
-    type: 'value',
-    axisLine: {
-      show: true,
-      lineStyle: {
-        color: '#000000',
-      },
-    },
-    splitLine: {
-      show: true,
-      lineStyle: {
-        color: '#e5e7eb',
-      },
-    },
-  },
-  series: [
-    {
-      data: [120, 200, 150, 80, 70, 110, 130],
-      type: 'bar',
-      showBackground: true,
-      backgroundStyle: {
-        color: 'rgba(180, 180, 180, 0.2)'
-      }
-    }
-  ]
-});
-window.addEventListener('resize', myChart.resize);
+import { setupEchart } from './echart.ts'
+setupEchart();
 
 // inputmask 5
 Inputmask().mask(document.querySelectorAll("input"));
