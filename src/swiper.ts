@@ -1,6 +1,6 @@
 import {animationSlide} from "./gasp.ts";
 
-export function setupSwiper() {
+export const setupSwiper = () => {
   const defaultSetting = {
     loop: true,
     autoHeight: true,
@@ -23,7 +23,7 @@ export function setupSwiper() {
     slidesPerView: 1,
   });
 
-  new Swiper(".swiperSectionContact", {
+  new Swiper(".swiper-section-contact", {
     ...defaultSetting,
     slidesPerView: 2,
     breakpoints: {
@@ -42,7 +42,7 @@ export function setupSwiper() {
     },
   });
 
-  new Swiper(".relatedSwiper", {
+  new Swiper(".related-swiper", {
     ...defaultSetting,
     slidesPerView: 1,
     breakpoints: {
