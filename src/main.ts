@@ -39,3 +39,16 @@ document.getElementById('error')!.addEventListener('click', () => Message.error(
 
 import { setupCounter } from './counter.ts'
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+
+import { API } from './api.ts'
+
+const test = await API.post('/authentication/jwt/login', {
+  deviceName:
+    "Chrome/116.0.0.0 desktop/mac-os-x-15 ccfeecc0-533f-8a96-f60d-8d6253b60420",
+  deviceNo: "Macintosh",
+  deviceType: "BROWSER",
+  password: "123123",
+  remember: false,
+  username: "0123456789",
+});
+console.log(test);
