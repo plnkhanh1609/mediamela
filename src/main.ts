@@ -12,10 +12,12 @@ setupMenuMobile(document.getElementsByClassName('handle-menu'));
 Array.from(document.getElementsByClassName('handle-dialog')).forEach((el) => el.addEventListener('click', () =>  {
   const temp = document.getElementById("template-1");
   if (temp) {
-    const a = document.importNode(temp, true);
-    a.innerHTML = a.innerHTML.replace(/{{test}}/g, 'TEST')
-    Message.html(a.innerHTML);
+    var template = Handlebars.compile(temp.innerHTML);
+    var data = { "name": "Alan", "hometown": "Somewhere, TX",
+      "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]};
+    Message.html(template(data));
   }
+
 }))
 
 // glightbox 3

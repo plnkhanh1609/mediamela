@@ -182,6 +182,9 @@
   <!--  gsap 3  -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 
+  <!-- handlebars 4 -->
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4/dist/handlebars.js"></script>
+
   <div class="relative group overflow-hidden">
     <div class="absolute z-10 w-full h-0 top-[calc(50%-1.125rem)]">
       <div class="flex justify-between container mx-auto">
@@ -251,7 +254,9 @@
       <div class="swiper-pagination"></div>
     </div>
     <template id="template-1">
-      <div class="myClass">I {{test}} like: {{test}} tes</div>
+      <p>Hello, my name is {{name}}. I am from {{hometown}}. I have {{kids.length}} kids:</p>
+        <ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}
+      </ul>
     </template>
   </div>
 
