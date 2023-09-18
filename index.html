@@ -377,5 +377,22 @@
     <script type="module" src="/src/main.ts"></script>
 
   <div id="text"></div>
+
+  <form
+    class="bg-white shadow-lg rounded-md p-5 md:p-10 flex flex-col w-11/12 max-w-lg group"
+    novalidate
+    data-validate=""
+  >
+    <div class="group">
+      <label for="username" class="block mb-2 text-sm font-medium">Your name</label>
+      <input type="text" id="username" class="border text-sm rounded-lg block w-full p-2.5" placeholder="Bonnie Green">
+    </div>
+    <div class="group">
+      <label for="username-error" class="block mb-2 text-sm font-medium text-red-700">Your name</label>
+      <input type="text" id="username-error" class="bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500 border text-sm rounded-lg block w-full p-2.5" placeholder="Bonnie Green">
+      <p class="mt-2 text-sm text-red-600 dark:text-red-500">Username already taken!</p>
+    </div>
+  </form>
+
   </body>
 </html>

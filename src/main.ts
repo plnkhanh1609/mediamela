@@ -11,8 +11,8 @@ setupMenuMobile(document.getElementsByClassName('handle-menu'));
 
 const temp = document.getElementById("template-1");
 if (temp) {
-  var template = Handlebars.compile(temp.innerHTML);
-  var data = {"datass": JSON.stringify({ "name": "Alan", "hometown": "Somewhere, TX",
+  const template = Handlebars.compile(temp.innerHTML);
+  const data = {"datass": JSON.stringify({ "name": "Alan", "hometown": "Somewhere, TX",
       "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]}), "name": "Alan", "hometown": "Somewhere, TX",
     "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}] };
   document.getElementById('text')!.innerHTML = template(data);
@@ -22,8 +22,8 @@ Array.from(document.getElementsByClassName('handle-dialog')).forEach((el) => el.
   const temp = document.getElementById("template-1");
   if (temp) {
     if (e.target instanceof HTMLElement) console.log(JSON.parse(e.target.dataset['test'] as string));
-    var template = Handlebars.compile(temp.innerHTML);
-    var data = { "name": "Alan", "hometown": "Somewhere, TX",
+    const template = Handlebars.compile(temp.innerHTML);
+    const data = { "name": "Alan", "hometown": "Somewhere, TX",
       "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]};
     Message.html(template(data));
   }
@@ -64,5 +64,9 @@ window.onload = async () => {
     remember: false,
     username: "12342134",
   });
-  console.log(test);
 };
+Array.from(document.getElementsByTagName('form')).forEach((el) => {
+  if (el.dataset.hasOwnProperty('validate')) {
+    el.querySelectorAll('input').forEach((input) => console.log(input));
+  }
+})
