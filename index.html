@@ -255,7 +255,7 @@
     </div>
     <template id="template-1">
       <p>Hello, my name is {{name}}. I am from {{hometown}}. I have {{kids.length}} kids:</p>
-        <ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}
+        <ul>{{#kids}}<li class="handle-dialog" data-test="{{../datass}}">{{name}} is {{age}}</li>{{/kids}}
       </ul>
     </template>
   </div>
@@ -375,5 +375,7 @@
     <button class="bg-red-600 text-white py-2 px-3 m-2 rounded-2xl" id="error" type="button">Error</button>
   </div>
     <script type="module" src="/src/main.ts"></script>
+
+  <div id="text"></div>
   </body>
 </html>

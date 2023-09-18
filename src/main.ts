@@ -9,9 +9,19 @@ setupSwiper();
 import {setupMenuMobile } from './menu-mobile.ts';
 setupMenuMobile(document.getElementsByClassName('handle-menu'));
 
-Array.from(document.getElementsByClassName('handle-dialog')).forEach((el) => el.addEventListener('click', () =>  {
+const temp = document.getElementById("template-1");
+if (temp) {
+  var template = Handlebars.compile(temp.innerHTML);
+  var data = {"datass": JSON.stringify({ "name": "Alan", "hometown": "Somewhere, TX",
+      "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]}), "name": "Alan", "hometown": "Somewhere, TX",
+    "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}] };
+  document.getElementById('text')!.innerHTML = template(data);
+}
+
+Array.from(document.getElementsByClassName('handle-dialog')).forEach((el) => el.addEventListener('click', (e) =>  {
   const temp = document.getElementById("template-1");
   if (temp) {
+    if (e.target instanceof HTMLElement) console.log(JSON.parse(e.target.dataset['test'] as string));
     var template = Handlebars.compile(temp.innerHTML);
     var data = { "name": "Alan", "hometown": "Somewhere, TX",
       "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]};
@@ -19,7 +29,6 @@ Array.from(document.getElementsByClassName('handle-dialog')).forEach((el) => el.
   }
 
 }))
-
 // glightbox 3
 GLightbox({});
 
@@ -51,9 +60,9 @@ window.onload = async () => {
       "Chrome/116.0.0.0 desktop/mac-os-x-15 ccfeecc0-533f-8a96-f60d-8d6253b60420",
     deviceNo: "Macintosh",
     deviceType: "BROWSER",
-    password: "123123",
+    password: "41234231",
     remember: false,
-    username: "0123456789",
+    username: "12342134",
   });
   console.log(test);
 };
