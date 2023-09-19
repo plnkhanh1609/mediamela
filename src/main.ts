@@ -65,8 +65,6 @@ window.onload = async () => {
     username: "12342134",
   });
 };
-Array.from(document.getElementsByTagName('form')).forEach((el) => {
-  if (el.dataset.hasOwnProperty('validate')) {
-    el.querySelectorAll('input').forEach((input) => console.log(input));
-  }
-})
+import { setupValidation } from './validation.ts'
+
+setupValidation();
