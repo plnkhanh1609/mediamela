@@ -9,10 +9,9 @@ GLightbox({});
 // sweetalert2 11
 import { Message } from './message.ts'
 import { API } from './api.ts'
-(<any>window)._METHOD_ = {
-  API: API,
-  Message: Message,
-};
+
+(<any>window).API = API;
+(<any>window).Message = Message;
 
 import { setupValidation } from './validation.ts'
 setupValidation();
@@ -40,7 +39,7 @@ if (temp) {
   document.getElementById('text')!.innerHTML = template(data);
 }
 
-Array.from(document.getElementsByClassName('handle-dialog')).forEach((el) => el.addEventListener('click', (e) =>  {
+Array.from(document.getElementsByClassName('handle-dialog')).forEach((el) => el.addEventListener('click', () =>  {
   const temp = document.getElementById("template-1");
   if (temp) {
     const template = Handlebars.compile(temp.innerHTML);
