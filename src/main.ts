@@ -69,3 +69,6 @@ window.onload = async () => {
 import { setupValidation } from './validation.ts'
 
 setupValidation();
+(<any>window)._METHOD_ = {
+  API: API
+};
