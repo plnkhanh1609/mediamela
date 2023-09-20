@@ -35,8 +35,28 @@
 form .group {
   &.error {
     label { @apply text-red-700; }
-    input, textarea { @apply bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500; }
+    > input,> textarea, > .choices > .choices__inner { @apply !bg-red-50 !border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500; }
     p.error { @apply text-red-600 text-sm; }
   }
   > .choices { @apply mb-2; }
+}
+
+.pretty {
+  input:checked ~ .state ,
+  &.p-toggle .state {
+    label:after { @apply !bg-blue-500; }
+    label:before { @apply border-blue-500; }
+  }
+  &.p-default:not(.p-fill) input:checked ~ .state label:after { @apply !bg-blue-500; }
+  &.p-switch {
+    input:checked ~ .state:before { @apply border-blue-500; }
+    &.p-fill input:checked ~ .state:before { @apply !bg-blue-500; }
+    &.p-slim input:checked ~ .state:before { @apply !bg-blue-600 border-blue-600; }
+  }
+}
+
+.choices {
+  &__inner { @apply !border-gray-200 !rounded-lg !bg-white; }
+  &__list--multiple .choices__item { @apply !border-blue-600 !bg-blue-500; }
+  &__input { @apply !bg-transparent; }
 }

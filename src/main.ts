@@ -64,6 +64,7 @@ window.onload = async () => {
     remember: false,
     username: "12342134",
   });
+  console.log(test);
 };
 import { setupValidation } from './validation.ts'
 

@@ -365,9 +365,10 @@
   <link href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3/dist/pretty-checkbox.min.css" rel="stylesheet">
 
   <form
-    class="bg-white shadow-lg rounded-md p-5 md:p-10 w-11/12 max-w-lg grid gap-2"
+    class="bg-white shadow-lg rounded-md p-5 md:p-10 w-11/12 max-w-lg grid gap-2 m-10"
     novalidate
     name="register"
+    onsubmit="setTimeout(() => console.log(window._FORM_['register'], window._FORMSTATUS_['register']))"
   >
     <div class="group">
       <label for="username" class="block mb-2 font-medium duration-500 transition-all ease-in-out">Your name</label>
@@ -383,15 +384,21 @@
     </div>
     <div class="group">
       <label class="block mb-2 font-medium duration-500 transition-all ease-in-out">Hobbies</label>
-      <div class="pretty p-default p-curve mb-2">
+      <div class="pretty p-svg p-curve mb-2">
         <input type="checkbox" value="a" name="hobbies[]" data-mincheck="2"/>
-        <div class="state p-primary">
+        <div class="state">
+          <svg class="svg svg-icon" viewBox="0 0 20 20">
+            <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
+          </svg>
           <label>A</label>
         </div>
       </div>
-      <div class="pretty p-default p-curve mb-2">
+      <div class="pretty p-svg p-curve mb-2">
         <input type="checkbox" value="b" name="hobbies[]" data-mincheck="2"/>
-        <div class="state p-primary">
+        <div class="state">
+          <svg class="svg svg-icon" viewBox="0 0 20 20">
+            <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
+          </svg>
           <label>B</label>
         </div>
       </div>
@@ -400,13 +407,13 @@
       <label class="block mb-2 font-medium duration-500 transition-all ease-in-out">Preferred Contact Method</label>
       <div class="pretty p-default p-round mb-2">
         <input type="radio" name="contactMethod" value="on" required/>
-        <div class="state p-primary">
+        <div class="state">
           <label>On</label>
         </div>
       </div>
       <div class="pretty p-default p-round mb-2">
         <input type="radio" name="contactMethod" value="off" required />
-        <div class="state p-primary">
+        <div class="state">
           <label>Off</label>
         </div>
       </div>
@@ -414,7 +421,7 @@
 
     <div class="group">
       <label for="heard" class="block mb-2 font-medium duration-500 transition-all ease-in-out">Your name</label>
-      <select id="heard" class="js-choice" required="">
+      <select id="heard" name="heard" required="">
         <option value="">Choose..</option>
         <option value="press">Press</option>
         <option value="net">Internet</option>
