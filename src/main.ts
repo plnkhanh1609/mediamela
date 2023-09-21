@@ -1,4 +1,4 @@
-import './index.less'
+import './less.less'
 
 // vanilla-lazyload 17
 new LazyLoad({callback_error: (el: any) => (el.src = 'https://via.placeholder.com/440x560/?text=Error') });
@@ -10,22 +10,22 @@ GLightbox({});
 import { Message } from './message.ts'
 import { API } from './api.ts'
 
+import { setupFormValid } from './validation.ts'
+setupFormValid();
+
 (<any>window).API = API;
 (<any>window).Message = Message;
+(<any>window).SetupFormValid = setupFormValid;
 
-import { setupValidation } from './validation.ts'
-setupValidation();
+
+
+
 
 import { setupMenuMobile } from './menu-mobile.ts';
 setupMenuMobile(document.getElementsByClassName('handle-menu'));
-
 // swiper 10
 import { setupSwiper } from './swiper.ts';
 setupSwiper();
-
-
-
-
 
 
 
