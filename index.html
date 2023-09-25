@@ -177,7 +177,55 @@
     </div>
   </div>
   <!-- End Header -->
+<style>#google_translate_element, .skiptranslate > iframe { display: none!important;}</style>
+  <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+      const value = localStorage.getItem('google-translate');
+      if (value) {
+        const option = document.getElementById('google-translate').querySelectorAll('option');
+        option.forEach((e) => {
+          if (e.value === value) e.selected = true;
+        })
+      }
+    }
+    function changeFunc(e) {
+      localStorage.setItem('google-translate', e.value);
+      const language = {
+        'en': ['English'],
+        'vi': ['Vietnamese'],
+        'cz': ['Chinese (Traditional)'],
+      }
+      let number = 2;
+      let $frame2
+      let $frame = document.querySelector('.skiptranslate > iframe');
+      if ($frame) {
+        $frame = $frame.contentWindow.document.getElementById(':2.finishTargetLang').getElementsByTagName('a');
+        if ($frame.length) $frame[0].click();
+        else {
+          document.getElementById(':0.targetLanguage').getElementsByTagName('a')[0].click();
+          number = 3;
+        }
+      } else {
+        document.getElementById(':0.targetLanguage').getElementsByTagName('a')[0].click();
+        number = 1;
+      }
+      $frame2 = document.getElementsByTagName('iframe');
+      document.evaluate(`//span[text()='${language[e.value][0]}' and @class='text']`, $frame2[$frame2.length - number].contentWindow.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+    }
+  </script>
+  <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
 
+  <select id="google-translate" onchange="changeFunc(this)">
+    <option value="cz">Chinese</option>
+    <option value="vi">Viet Nam</option>
+    <option value="en">English</option>
+  </select>
 
 
   <!-- Form -->
