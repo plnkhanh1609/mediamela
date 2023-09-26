@@ -177,29 +177,34 @@
     </div>
   </div>
   <!-- End Header -->
-<style>#google_translate_element, .skiptranslate > iframe { display: none!important;}</style>
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css" />
+  <style>#google_translate_element, .skiptranslate > iframe { display: none!important;}</style>
   <div id="google_translate_element"></div>
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
-        pageLanguage: 'en',
+        pageLanguage: 'vi',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
       }, 'google_translate_element');
-      const value = localStorage.getItem('google-translate');
-      if (value) {
-        const option = document.getElementById('google-translate').querySelectorAll('option');
-        option.forEach((e) => {
-          if (e.value === value) e.selected = true;
-        })
+      const value = localStorage.getItem('google-translate') || 'vi';
+      const languageObj = {
+        'en': ['English', 'us'],
+        'vi': ['Vietnamese', 'vn'],
+        'cn': ['Chinese', 'cn'],
       }
+      document.getElementById('flag-language').classList = `fi rounded fi-${languageObj[value][1]}`;
+      document.getElementById('text-language').innerText = languageObj[value][0];
     }
-    function changeFunc(e) {
-      localStorage.setItem('google-translate', e.value);
+    function changeFunc(value) {
+      localStorage.setItem('google-translate', value);
       const language = {
         'en': ['English'],
         'vi': ['Vietnamese'],
-        'cz': ['Chinese (Traditional)'],
+        'cn': ['Chinese (Traditional)'],
       }
       let number = 2;
       let $frame2
@@ -216,16 +221,36 @@
         number = 1;
       }
       $frame2 = document.getElementsByTagName('iframe');
-      document.evaluate(`//span[text()='${language[e.value][0]}' and @class='text']`, $frame2[$frame2.length - number].contentWindow.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+      const element = document.evaluate(`//span[text()='${language[value][0]}' and @class='text']`, $frame2[$frame2.length - number].contentWindow.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (element) {
+        element.click();
+        const languageObj = {
+          'en': ['English', 'us'],
+          'vi': ['Vietnamese', 'vn'],
+          'cn': ['Chinese', 'cn'],
+        }
+        document.getElementById('flag-language').classList = `fi rounded fi-${languageObj[value][1]}`;
+        document.getElementById('text-language').innerText = languageObj[value][0];
+      }
+      else if (value !== 'vi') changeFunc('vi')
     }
   </script>
   <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+  <span class="fi fi-us"></span>
+  <span class="fi fi-cn"></span>
+  <span class="fi fi-vn"></span>
 
-  <select id="google-translate" onchange="changeFunc(this)">
-    <option value="cz">Chinese</option>
-    <option value="vi">Viet Nam</option>
-    <option value="en">English</option>
-  </select>
+  <div class="group relative">
+    <button class="flex items-center gap-2 bg-white border border-gray-300 hover:border-black rounded-md px-3.5 py-2">
+      <span id="flag-language" class="fi rounded fi-vn "></span> <span id="text-language">Vietnamese</span> <i class="las la-angle-down"></i>
+    </button>
+    <ul class="bg-white border border-gray-300 w-36 rounded-md absolute top-full left-0 shadow-lg h-0 opacity-0 group-hover:opacity-100 group-hover:h-auto">
+      <li class="flex items-center gap-2 px-3.5 py-2 cursor-pointer" onclick="changeFunc('vi')" value="vi"><span class="fi fi-vn rounded"></span> Vietnamese</li>
+      <li class="flex items-center gap-2 px-3.5 py-2 cursor-pointer" onclick="changeFunc('en')" value="en"><span class="fi fi-us rounded"></span> English</li>
+      <li class="flex items-center gap-2 px-3.5 py-2 cursor-pointer" onclick="changeFunc('cn')" value="cn"><span class="fi fi-cn rounded"></span> Chinese</li>
+    </ul>
+  </div>
+
 
 
   <!-- Form -->
