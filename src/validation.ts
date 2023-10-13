@@ -3,12 +3,14 @@ export const setupFormValid = () => {
   (<any>window)._FORMSTATUS_ = {};
   (<any>window)._SELECT_ = {};
   Array.from(document.getElementsByTagName('form')).forEach((el) => {
+    if (!el.noValidate) return
     (<any>window)._FORM_[el.name] = {};
     (<any>window)._FORMSTATUS_[el.name] = false;
     (<any>window)._SELECT_[el.name] = {};
-    el.addEventListener('submit',(event) => {event.preventDefault(); submitForm(el);})
+    el.addEventListener('submit',(event) => {event.preventDefault(); submitForm(el);});
 
     Array.from(['input', 'textarea']).forEach((tag) => Array.from(el.querySelectorAll(tag) as NodeListOf<HTMLInputElement>).forEach((element) => {
+      if (element.type === 'range') rangeSlider(element);
       element.addEventListener('blur', () => showMessage(element as HTMLInputElement, tag, 'blur', el.name),false);
     }));
     Array.from([ '.pretty > input', 'select']).forEach((tag) => Array.from(el.querySelectorAll(tag) as NodeListOf<HTMLInputElement>).forEach((element) => {
