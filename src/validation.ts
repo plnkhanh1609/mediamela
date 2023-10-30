@@ -74,11 +74,20 @@ const showMessage = (el: HTMLInputElement, tag: string, event: string, nameForm:
   }
 }
 
-const getMessage = ({value, required, type, name, dataset}: HTMLInputElement, nameForm: string ,isSubmit: boolean) => {
-  if (isSubmit || type === 'checkbox' && name.indexOf('[]') > -1) value = (<any>window)._FORM_[nameForm][name.replace('[]', '')];
+const getMessage = (el: HTMLInputElement, nameForm: string ,isSubmit: boolean) => {
+  let {value, required, type, name, dataset} = el
+  if (isSubmit || type === 'checkbox' && name && name.indexOf('[]') > -1) value = (<any>window)._FORM_[nameForm][name.replace('[]', '')];
   if ((!value && required && name.indexOf('[]') === -1)) return (<any>window)._MESSAGE_.required;
   else if (value && type === 'email' && !regexEmail.test(value.trim())) return (<any>window)._MESSAGE_.email
-  if ((type === 'checkbox' && name.indexOf('[]') > -1) && dataset.hasOwnProperty('mincheck') && (!value || value.length < parseInt(dataset['mincheck']!))) return (<any>window)._MESSAGE_.mincheck + dataset['mincheck'];
+  else if (value && dataset.hasOwnProperty('minLength') && value.length < parseInt(dataset['minLength']!)) return (<any>window)._MESSAGE_.minLengthCheckBox + dataset['minLength'] + ' ký tự';
+  else if (value && dataset.hasOwnProperty('maxLength') && value.length > parseInt(dataset['maxLength']!)) return (<any>window)._MESSAGE_.minLengthCheckBox + dataset['maxLength'] + ' ký tự';
+  else if (value && dataset.hasOwnProperty('regex') && !new RegExp(dataset['regex']!).test(value.trim())) return dataset.hasOwnProperty('message') ? dataset['message'] : (<any>window)._MESSAGE_.required
+  else if (value && dataset.hasOwnProperty('compare')) {
+    const compare = el.parentElement!.parentElement!.querySelector(`[name='${dataset['compare']}']`) as HTMLInputElement
+    if (!!compare && compare.value && compare.value.trim() !== value.trim() ) return dataset.hasOwnProperty('message') ? dataset['message'] : (<any>window)._MESSAGE_.required;
+  }
+
+  if ((type === 'checkbox' && name.indexOf('[]') > -1) && dataset.hasOwnProperty('minLength') && (!value || value.length < parseInt(dataset['minLength']!))) return (<any>window)._MESSAGE_.minLengthCheckBox + dataset['minLength'];
   return '';
 }
 const regexEmail =

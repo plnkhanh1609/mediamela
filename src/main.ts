@@ -19,7 +19,10 @@ setupFormValid();
 (<any>window)._MESSAGE_ = {
   required: 'Xin vui lòng nhập nội dung',
   email: 'Xin vui lòng nhập địa chỉ email hợp lệ!',
-  mincheck: 'Xin vui lòng chọn ít nhất '
+  minLengthCheckBox: 'Xin vui lòng chọn ít nhất ',
+  minLength: 'Xin vui lòng nhập tối thiểu ',
+  maxLength: 'Xin vui lòng nhập không quá ',
+  compare: 'Xin vui lòng nhập không quá ',
 };
 
 
@@ -80,3 +83,17 @@ window.onload = async () => {
   console.log(test);
 };
 
+const time: any = {};
+document.querySelectorAll('.handle-collapse').forEach((e: any) => e.addEventListener('click', () => {
+  if (!time[e.id]) time[e.id] = gsap.timeline({defaults: {duration: 0.25, ease: 'power1.inOut'}});
+  else {
+    time[e.id][time[e.id].reversed() ? 'play' : 'reverse']();
+    return
+  }
+
+  time[e.id]
+    .to(e.parentElement.querySelector('.handle-content'), {height: 'auto'}, '0')
+  time[e.id]
+    .to(e.querySelector('.la-angle-down'), { transform: 'rotate(0deg)'}, '0');
+
+}));

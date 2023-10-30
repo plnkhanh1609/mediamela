@@ -234,6 +234,30 @@
     }
   </script>
 
+  <div class="my-2 group">
+    <div id="test" class="handle-collapse mb-2 text-gray-900 text-sm font-normal">
+        Bán đất Đông Anh
+        <i class="las la-angle-down ml-1 -rotate-90"></i>
+    </div>
+    <ul class="handle-content mt-2 ml-2 overflow-hidden h-0">
+      <li class="mb-2 lv1">
+        <a class="text-gray-900 mb-2 text-sm font-normal cursor-pointer hover:text-gray-400" href="/ban-dat-bac-hong">Bán đất Bắc Hồng</a>
+      </li>
+      <li class="mb-2 lv1">
+        <a class="text-gray-900 mb-2 text-sm font-normal cursor-pointer hover:text-gray-400" href="/ban-dat-nam-hong">Bán đất Nam Hồng</a>
+      </li>
+      <li class="mb-2 lv1">
+        <a class="text-gray-900 mb-2 text-sm font-normal cursor-pointer hover:text-gray-400" href="/ban-dat-kim-no">Bán đất Kim Nỗ</a>
+      </li>
+      <li class="mb-2 lv1">
+        <a class="text-gray-900 mb-2 text-sm font-normal cursor-pointer hover:text-gray-400" href="/ban-dat-xuan-canh">Bán đất Xuân Canh</a>
+      </li>
+      <li class="mb-2 lv1">
+        <a class="text-gray-900 mb-2 text-sm font-normal cursor-pointer hover:text-gray-400" href="/ban-dat-van-ha">Bán đất Vân Hà</a>
+      </li>
+    </ul>
+  </div>
+
   <!--  translate google -->
   <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
 
@@ -285,13 +309,25 @@
       <input name="email2" type="email" id="email" class="border rounded-lg block w-full p-2.5 mb-2 duration-500 transition-all ease-in-out" placeholder="email" required>
     </div>
     <div class="group">
+      <label for="password" class="block mb-2 font-medium duration-500 transition-all ease-in-out">Your password</label>
+      <input name="password" type="password" data-min-length="4" data-max-length="6" id="password" class="border rounded-lg block w-full p-2.5 mb-2 duration-500 transition-all ease-in-out" placeholder="password" required>
+    </div>
+    <div class="group">
+      <label for="passwordConfirm" class="block mb-2 font-medium duration-500 transition-all ease-in-out">Your password</label>
+      <input name="passwordConfirm" type="password" data-min-length="4" data-max-length="6" data-compare="password" data-message="Mật khẩu không khớp" id="passwordConfirm" class="border rounded-lg block w-full p-2.5 mb-2 duration-500 transition-all ease-in-out" placeholder="password" required>
+    </div>
+    <div class="group">
+      <label for="phone" class="block mb-2 font-medium duration-500 transition-all ease-in-out">Your phone</label>
+      <input name="phone" data-regex="^\d+$" data-message="Định dạng điện thoại không đúng" type="tel" id="phone" class="border rounded-lg block w-full p-2.5 mb-2 duration-500 transition-all ease-in-out" placeholder="phone" required>
+    </div>
+    <div class="group">
       <label for="message" class="block mb-2 font-medium duration-500 transition-all ease-in-out">Your name</label>
       <textarea name="message" id="message" class="border rounded-lg block w-full p-2.5 mb-2 duration-500 transition-all ease-in-out" placeholder="message" required></textarea>
     </div>
     <div class="group">
       <label class="block mb-2 font-medium duration-500 transition-all ease-in-out">Hobbies</label>
       <div class="pretty p-svg p-curve mb-2">
-        <input type="checkbox" value="a" name="hobbies[]" data-mincheck="2"/>
+        <input type="checkbox" value="a" name="hobbies[]" data-min-length="2"/>
         <div class="state">
           <svg class="svg svg-icon" viewBox="0 0 20 20">
             <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
@@ -300,7 +336,7 @@
         </div>
       </div>
       <div class="pretty p-svg p-curve mb-2">
-        <input type="checkbox" value="b" name="hobbies[]" data-mincheck="2"/>
+        <input type="checkbox" value="b" name="hobbies[]" data-min-length="2"/>
         <div class="state">
           <svg class="svg svg-icon" viewBox="0 0 20 20">
             <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
