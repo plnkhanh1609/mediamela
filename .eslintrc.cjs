@@ -1,16 +1,12 @@
 module.exports = {
-  plugins: ['@typescript-eslint/eslint-plugin', 'react', 'jsx-a11y', 'react-hooks'],
+  plugins: ['@typescript-eslint/eslint-plugin', 'jsx-a11y'],
   parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
-    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
   ],
   root: true,
   settings: {
-    react: {
-      version: 'detect',
-    },
   },
   env: {
     node: true,

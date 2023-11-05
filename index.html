@@ -232,6 +232,20 @@
       }
       else if (value !== 'vi') changeFunc('vi', e)
     }
+    setTimeout(() => !isChrome() && document.querySelectorAll('.language').forEach((e) => e.style.display = 'none'), 200)
+
+    function isChrome() {
+      const isChromium = window.chrome;
+      const winNav = window.navigator;
+
+      return winNav.userAgent.match("CriOS") || (
+        isChromium !== null &&
+        typeof isChromium !== "undefined" &&
+        winNav.vendor === "Google Inc." &&
+        !typeof window.opr !== "undefined" &&
+        !winNav.userAgent.indexOf("Edg") > -1
+      )
+    }
   </script>
 
   <div class="my-2 group">
@@ -267,7 +281,7 @@
   <style>#google_translate_element, .skiptranslate > iframe, iframe.skiptranslate, #goog-gt-tt { display: none!important;}</style>
   <div id="google_translate_element"></div>
 
-  <div class="group relative">
+  <div class="group relative language">
     <button class="flex items-center gap-2 bg-white border border-gray-300 hover:border-black rounded-md px-3.5 py-2">
       <span class="flag-language fi rounded fi-vn "></span> <span class="text-language">Vietnamese</span> <i class="las la-angle-down"></i>
     </button>
@@ -573,9 +587,6 @@
     }
   </script>
   <!--  End floating-ui.dom 1 -->
-
-  <img src="/images/image.jpg" alt="images">
-  <div class="h-[400px] w-full bg-[url('/images/image.jpg')]"></div>
 
   <script type="module" src="/src/main.ts"></script>
   </body>
