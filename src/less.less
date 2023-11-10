@@ -96,20 +96,32 @@ form .group {
 
 
 
-.hamburger { @apply flex self-center flex-col justify-between w-6 h-6 cursor-pointer pt-1 pb-1;
+.hamburger { @apply flex self-center flex-col justify-between w-9 h-7 pt-1 pb-1;
   span { @apply self-end w-full bg-white transition-all duration-300 ease-in-out ~'h-0.5'; }
   .meat { @apply ~'w-10/12' transition-all duration-150 ease-in-out; }
   .bottom-bun { @apply ~'w-7/12'; }
   &:hover span { @apply w-full; }
-  &.body-menu-opened {
-    .top-bun { @apply w-full -rotate-45 ~'translate-y-[0.42rem]'; }
-    .bottom-bun { @apply w-full rotate-45 ~'-translate-y-[0.42rem]'; }
+  &.active {
+    .top-bun { @apply w-full -rotate-45 ~'translate-y-[0.6rem]'; }
+    .bottom-bun { @apply w-full rotate-45 ~'-translate-y-[0.5rem]'; }
     .meat { @apply w-0; }
     &:hover { @apply transition-transform duration-300 hover:rotate-90 ease-in-out; }
   }
-  &:not(.body-menu-opened):hover {
+  &:not(.active):hover {
     .top-bun { @apply animate-burger-hover-2; }
     .meat { @apply animate-burger-hover-4; }
     .bottom-bun { @apply animate-burger-hover-6; }
+  }
+}
+
+.hamburger-arrow { @apply relative w-9 h-6;
+  span { @apply absolute w-full ~'h-0.5' left-0 rounded-sm bg-white transition-all duration-300 ease-in-out;
+    &.top-bun { @apply top-0; }
+    &.bottom-bun { @apply bottom-0;}
+  }
+  &.active span{
+    &.top-bun { @apply w-4 top-6 rotate-45 ~'-translate-x-[0.13rem] -translate-y-[0.4rem]'; }
+    &.meat { @apply w-3/4 rotate-180; }
+    &.bottom-bun { @apply w-4 bottom-6 -rotate-45 ~'-translate-x-[0.13rem] translate-y-[0.55rem]'; }
   }
 }
