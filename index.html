@@ -14,7 +14,6 @@
 <body>
 
 
-
 <!-- Header -->
 <header class="w-full sticky top-0 left-0 z-30">
   <div class="max-w-screen-2xl mx-auto py-4 pl-5 pr-4 flex items-center justify-between bg-blue-500">
@@ -402,65 +401,6 @@
 <!-- End Form -->
 
 
-
-<!--  Glightbox 3  -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3/dist/css/glightbox.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/glightbox@3/dist/js/glightbox.min.js"></script>
-
-<ul class="grid grid-cols-3 gap-3 container mx-auto mt-3">
-  <li class="relative group">
-    <a href="https://biati-digital.github.io/glightbox/demo/img/large/gm1.jpg" class="glightbox w-full overflow-hidden block">
-      <span class="absolute top-0 left-0 bg-black w-full h-full z-10 opacity-0 duration-500 transition-all ease-in-out group-hover:opacity-30"></span>
-      <img
-        class="w-[calc(100%+40px)] max-w-[calc(100%+40px)] duration-500 transition-all ease-in-out translate-x-[-40px] group-hover:translate-x-0"
-        src="https://biati-digital.github.io/glightbox/demo/img/small/gm1.jpg" alt="image"/>
-    </a>
-  </li>
-  <li class="relative group">
-    <a href="https://biati-digital.github.io/glightbox/demo/img/large/gm2.jpg" class="glightbox w-full overflow-hidden block">
-      <span class="absolute top-0 left-0 bg-black w-full h-full z-10 opacity-0 duration-500 transition-all ease-in-out group-hover:opacity-30"></span>
-      <img
-        class="w-[calc(100%+40px)] max-w-[calc(100%+40px)] duration-500 transition-all ease-in-out translate-x-[-40px] group-hover:translate-x-0"
-        src="https://biati-digital.github.io/glightbox/demo/img/small/gm2.jpg" alt="image" />
-    </a>
-  </li>
-  <li class="relative group">
-    <a href="https://biati-digital.github.io/glightbox/demo/img/large/gm3.jpg" class="glightbox w-full overflow-hidden block">
-      <span class="absolute top-0 left-0 bg-black w-full h-full z-10 opacity-0 duration-500 transition-all ease-in-out group-hover:opacity-30"></span>
-      <img
-        class="w-[calc(100%+40px)] max-w-[calc(100%+40px)] duration-500 transition-all ease-in-out translate-x-[-40px] group-hover:translate-x-0"
-        src="https://biati-digital.github.io/glightbox/demo/img/small/gm3.jpg" alt="image" />
-    </a>
-  </li>
-  <li class="relative group">
-    <a href="https://biati-digital.github.io/glightbox/demo/img/large/gm4.jpg" class="glightbox w-full overflow-hidden block">
-      <span class="absolute top-0 left-0 bg-black w-full h-full z-10 opacity-0 duration-500 transition-all ease-in-out group-hover:opacity-30"></span>
-      <img
-        class="w-[calc(100%+40px)] max-w-[calc(100%+40px)] duration-500 transition-all ease-in-out translate-x-[-40px] group-hover:translate-x-0"
-        src="https://biati-digital.github.io/glightbox/demo/img/small/gm4.jpg" alt="image" />
-    </a>
-  </li>
-  <li class="relative group">
-    <a href="https://biati-digital.github.io/glightbox/demo/img/large/gm5.jpg" class="glightbox w-full overflow-hidden block">
-      <span class="absolute top-0 left-0 bg-black w-full h-full z-10 opacity-0 duration-500 transition-all ease-in-out group-hover:opacity-30"></span>
-      <img
-        class="w-[calc(100%+40px)] max-w-[calc(100%+40px)] duration-500 transition-all ease-in-out translate-x-[-40px] group-hover:translate-x-0"
-        src="https://biati-digital.github.io/glightbox/demo/img/small/gm5.jpg" alt="image" />
-    </a>
-  </li>
-  <li class="relative group">
-    <a href="https://biati-digital.github.io/glightbox/demo/img/large/gm6.jpg" class="glightbox w-full overflow-hidden block">
-      <span class="absolute top-0 left-0 bg-black w-full h-full z-10 opacity-0 duration-500 transition-all ease-in-out group-hover:opacity-30"></span>
-      <img
-        class="w-[calc(100%+40px)] max-w-[calc(100%+40px)] duration-500 transition-all ease-in-out translate-x-[-40px] group-hover:translate-x-0"
-        src="https://biati-digital.github.io/glightbox/demo/img/small/gm6.jpg" alt="image" />
-    </a>
-  </li>
-</ul>
-<!-- End Glightbox 3  -->
-
-
-
 <!--  sweetalert2 11  -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
@@ -565,6 +505,77 @@
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <div id="echarts" class="w-full h-52"></div>
 
+<!-- wowjs 1 -->
+<script src="https://cdn.jsdelivr.net/npm/wowjs@1/dist/wow.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/wowjs@1/css/libs/animate.min.css" rel="stylesheet">
+<script>
+  new WOW({
+    boxClass: "wow", // animated element css class (default is wow)
+    animateClass: "animated", // animation css class (default is animated)
+    mobile: true, // trigger animations on mobile devices (default is true)
+    live: true // act on asynchronously loaded content (default is true)
+  }).init();
+</script>
+
+<!--  Glightbox 3  -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3/dist/css/glightbox.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/glightbox@3/dist/js/glightbox.min.js"></script>
+
+<ul class="grid grid-cols-3 gap-3 container mx-auto mt-3">
+  <li class="relative group wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+    <a href="https://biati-digital.github.io/glightbox/demo/img/large/gm1.jpg" class="glightbox w-full overflow-hidden block">
+      <span class="absolute top-0 left-0 bg-black w-full h-full z-10 opacity-0 duration-500 transition-all ease-in-out group-hover:opacity-30"></span>
+      <img
+        class="w-[calc(100%+40px)] max-w-[calc(100%+40px)] duration-500 transition-all ease-in-out translate-x-[-40px] group-hover:translate-x-0"
+        src="https://biati-digital.github.io/glightbox/demo/img/small/gm1.jpg" alt="image"/>
+    </a>
+  </li>
+  <li class="relative group wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+    <a href="https://biati-digital.github.io/glightbox/demo/img/large/gm2.jpg" class="glightbox w-full overflow-hidden block">
+      <span class="absolute top-0 left-0 bg-black w-full h-full z-10 opacity-0 duration-500 transition-all ease-in-out group-hover:opacity-30"></span>
+      <img
+        class="w-[calc(100%+40px)] max-w-[calc(100%+40px)] duration-500 transition-all ease-in-out translate-x-[-40px] group-hover:translate-x-0"
+        src="https://biati-digital.github.io/glightbox/demo/img/small/gm2.jpg" alt="image" />
+    </a>
+  </li>
+  <li class="relative group wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+    <a href="https://biati-digital.github.io/glightbox/demo/img/large/gm3.jpg" class="glightbox w-full overflow-hidden block">
+      <span class="absolute top-0 left-0 bg-black w-full h-full z-10 opacity-0 duration-500 transition-all ease-in-out group-hover:opacity-30"></span>
+      <img
+        class="w-[calc(100%+40px)] max-w-[calc(100%+40px)] duration-500 transition-all ease-in-out translate-x-[-40px] group-hover:translate-x-0"
+        src="https://biati-digital.github.io/glightbox/demo/img/small/gm3.jpg" alt="image" />
+    </a>
+  </li>
+  <li class="relative group wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+    <a href="https://biati-digital.github.io/glightbox/demo/img/large/gm4.jpg" class="glightbox w-full overflow-hidden block">
+      <span class="absolute top-0 left-0 bg-black w-full h-full z-10 opacity-0 duration-500 transition-all ease-in-out group-hover:opacity-30"></span>
+      <img
+        class="w-[calc(100%+40px)] max-w-[calc(100%+40px)] duration-500 transition-all ease-in-out translate-x-[-40px] group-hover:translate-x-0"
+        src="https://biati-digital.github.io/glightbox/demo/img/small/gm4.jpg" alt="image" />
+    </a>
+  </li>
+  <li class="relative group wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+    <a href="https://biati-digital.github.io/glightbox/demo/img/large/gm5.jpg" class="glightbox w-full overflow-hidden block">
+      <span class="absolute top-0 left-0 bg-black w-full h-full z-10 opacity-0 duration-500 transition-all ease-in-out group-hover:opacity-30"></span>
+      <img
+        class="w-[calc(100%+40px)] max-w-[calc(100%+40px)] duration-500 transition-all ease-in-out translate-x-[-40px] group-hover:translate-x-0"
+        src="https://biati-digital.github.io/glightbox/demo/img/small/gm5.jpg" alt="image" />
+    </a>
+  </li>
+  <li class="relative group wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+    <a href="https://biati-digital.github.io/glightbox/demo/img/large/gm6.jpg" class="glightbox w-full overflow-hidden block">
+      <span class="absolute top-0 left-0 bg-black w-full h-full z-10 opacity-0 duration-500 transition-all ease-in-out group-hover:opacity-30"></span>
+      <img
+        class="w-[calc(100%+40px)] max-w-[calc(100%+40px)] duration-500 transition-all ease-in-out translate-x-[-40px] group-hover:translate-x-0"
+        src="https://biati-digital.github.io/glightbox/demo/img/small/gm6.jpg" alt="image" />
+    </a>
+  </li>
+</ul>
+<!-- End Glightbox 3  -->
+
+
+
+
 <!--  inputmask 5  -->
 <script src="https://cdn.jsdelivr.net/npm/inputmask@5/dist/inputmask.min.js"></script>
 <div class="pl-5">
@@ -595,6 +606,17 @@
 </script>
 <!--  End floating-ui.dom 1 -->
 
+
+<script src="https://cdn.jsdelivr.net/npm/appear@1/dist/appear.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/odometer@0/odometer.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/odometer@0/themes/odometer-theme-default.min.css" rel="stylesheet">
+<div class="odometer bg-blue-500 text-white p-2 rounded" data-count="648">0</div>
+<script>
+  appear({
+    elements: () => document.querySelectorAll('.odometer'),
+    appear: (el) => el.innerHTML = el.dataset.count,
+  });
+</script>
 <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
