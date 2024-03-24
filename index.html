@@ -23,16 +23,39 @@
 <body>
 
 <header>
-  <h1>Heading 1</h1>
+  <div class="flex justify-between items-center">
+    <ul>
+      <li class="inline-block">
+        <img class="inline-block" src="https://via.placeholder.com/50x50/?text=header" alt="">
+        47 Bakery Street, London, UK
+        <a href="tel:01989526503">
+          <span class="hover:text-blue-500 transition-all duration-500 ease-in-out">0198-9526503</span>
+        </a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a href="/">
+          <i class="lab la-facebook-f hover:text-blue-500 transition-all duration-500 ease-in-out"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
 </header>
 <main>
-  <section>
+  <section class="relative">
+    <h1>Heading 1</h1>
+    <picture class="pointer-events-none absolute inset-x-0 top-0 -z-10">
+      <img src="https://via.placeholder.com/24x24/?text=article" alt="img">
+    </picture>
+  </section>
+  <section class="relative">
     <h2>Heading 2</h2>
     <article>
       <h3>Heading 3</h3>
       <picture>
         <a href="#">
-          <img src="https://via.placeholder.com/100x100/?text=sss" alt="img">
+          <img src="https://via.placeholder.com/100x100/?text=article" alt="img">
         </a>
       </picture>
       <div>
@@ -42,7 +65,16 @@
     </article>
   </section>
 </main>
-<footer></footer>
+<footer>
+  <div class="flex flex-wrap">
+    <h3>Heading 3</h3>
+    <ul>
+      <li>
+        <a href="/">Link</a>
+      </li>
+    </ul>
+  </div>
+</footer>
 
 <!-- Header -->
 <header class="w-full sticky top-0 left-0 z-30 mt-[995px]">
