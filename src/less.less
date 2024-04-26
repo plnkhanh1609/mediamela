@@ -1,108 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap");
+@import "../node_modules/animate.css/animate.min.css";
+@import "../node_modules/swiper/swiper-bundle.min.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.swal2 {
-  &-html-container { @apply !m-6; }
-  &-actions { @apply !mt-0 !mb-4; }
-}
 
-form .group {
-  &.error {
-    label { @apply text-red-700; }
-    > input,> textarea, > .choices > .choices__inner { @apply !bg-red-50 !border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500; }
-    p.error { @apply text-red-600 text-sm; }
-  }
-  > .choices { @apply mb-2; }
-}
+@layer base {
+    html {
+        font-family: "Rubik";
+        font-weight: 400;
+    }
+    h1,
+    h2,
+    h3,
+    h4.h5,
+    h6 {
+        font-family: "Cormorant", serif;
+        font-weight: 700;
+    }
+    article h3 {
+        font-family: "Rubik";
+        font-weight: 400;
+    }
+    .header-sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    ion-icon {
+        display: block;
+    }
+    .cate--active {
+        position: relative;
+        color: #064acb;
+        background-color: rgb(6, 74, 203,.03);
+    }
+    
 
-.pretty {
-  input:checked ~ .state ,
-  &.p-toggle .state {
-    label:after { @apply !bg-blue-500; }
-    label:before { @apply border-blue-500; }
-  }
-  &.p-default:not(.p-fill) input:checked ~ .state label:after { @apply !bg-blue-500; }
-  &.p-switch {
-    input:checked ~ .state:before { @apply border-blue-500; }
-    &.p-fill input:checked ~ .state:before { @apply !bg-blue-500; }
-    &.p-slim input:checked ~ .state:before { @apply !bg-blue-600 border-blue-600; }
-  }
-}
-
-.choices {
-  &__inner { @apply !border-gray-200 !rounded-lg !bg-white; }
-  &__list--multiple .choices__item { @apply !border-blue-600 !bg-blue-500; }
-  &__input { @apply !bg-transparent; }
-}
-
-.html-render { @apply text-justify;
-  figure { @apply inline-block text-center w-full py-5;
-    figcaption { @apply bg-teal-50 border border-teal-200 mt-1 py-1 px-2 inline-block; }
-  }
-  p { @apply mb-3; }
-  img { @apply mx-auto; }
-  h1 { @apply text-5xl text-teal-900 mb-7 mt-0; }
-  h2 { @apply text-4xl text-teal-900 mb-6 mt-0; }
-  h3 { @apply text-3xl text-teal-900 mb-5 mt-0; }
-  h4 { @apply text-2xl text-teal-900 mb-4 mt-0; }
-  h5 { @apply text-xl text-teal-900 mb-4 mt-0; }
-  h6 { @apply text-lg text-teal-900 mb-4 mt-0; }
-  table { @apply w-full my-3;
-    th,
-    td { @apply text-left border border-gray-200 px-2 ~'py-1.5'; }
-  }
-  blockquote {@apply mb-7 mx-auto relative table text-justify p-4 border-0 m-0 text-inherit;
-    background: linear-gradient(to right, theme('textColor.indigo.500') 2px, transparent 1px)
-    0 100%, linear-gradient(to left, theme('textColor.indigo.500') 2px, transparent 1px)
-    100% 0, linear-gradient(to bottom, theme('textColor.indigo.500') 2px, transparent 1px)
-    100% 0, linear-gradient(to top, theme('textColor.indigo.500') 2px, transparent 1px)
-    0 100%;
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
-
-    &:before,
-    &:after { @apply font-black absolute text-indigo-500 text-3xl;
-      font-family: Line Awesome Free, serif;
+    .decor-background {
+        position: relative;
+        overflow: hidden;
+    }
+    .decor-background::before {
+        content: url("./asset/imgs/decor-bestseller.png");
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
-    &:before { @apply -top-3 right-full -mr-3;
-      content: '"';
+    /* btn */
+    .btn {
+        overflow: hidden;
+        position: relative;
+        background: var(--bg, white);
+        display: inline-flex;
+        align-items: center;
+        padding-left: 12px;
+        border-radius: 32px;
+        min-width: var(--width, 110px);
+        height: var(--height, 32px);
+        font-size: var(--font-size, 14px);
+        color: var(--text-color, black);
+        cursor: pointer;
     }
 
-    &:after { @apply -bottom-3 left-full top-auto -ml-3;
-      content: '"';
+    .btn > span {
+        font-size: 14px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-icon, white);
+        right: 2px;
+        flex-shrink: 0;
+        background: var(--icon-bg, #064acb);
+        order: 2;
+        width: var(--before-width, 20px);
+        height: var(--before-height, 20px);
+        border-radius: 50%;
     }
-  }
-}
+    .btn--primary {
+        --bg: #064acb;
+        --icon-bg: white;
+        --color-icon: black;
+        --text-color: white;
+    }
+    .btn--large {
+        padding-left: 12px;
+        --width: 180px;
+        --height: 56px;
+        --font-size: 18px;
+        --before-width: 44px;
+        --before-height: 44px;
+    }
+    .btn--large > span {
+        right: 8px;
+    }
+    .btn::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        border-radius: inherit;
+        background-color: rgb(0, 0, 0, 0.2);
+        transition: width 0.3s ease;
+    }
+    .btn:hover.btn::after {
+        width: 100%;
+        left: 0;
+        right: initial;
+    }
 
+    /* tag */
+    .tag {
+        border-radius: 32px;
+        min-width: 90px;
+        padding: 5px 20px;
+        background:  #f3a952;
+        font-size: 14px;
+        color: #fff;
+    }
+    .tag--primary {
+        background: #064acb ;
+    }
+    .triangle {
+        position: relative;
+    }
+    .triangle::after {
+        background: rgba(227, 248, 255, 0.15);
+        bottom: 0;
+        -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%);
+        clip-path: polygon(0 0, 0 100%, 100% 100%);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        width: 65%;
+    }
+    .banner--triangle::before {
+        content: "";
+        position: absolute;
+        width: 30%;
+        bottom: 0;
+        top: 0;
+        left: -14.9%;
+        background: inherit;
+        -webkit-clip-path: polygon(50% 0%, 9% 100%, 50% 100%);
+        clip-path: polygon(50% 0%, 9% 100%, 50% 100%);
+    }
+    @media (max-width: 768px) {
+        .banner--triangle::before {
+            display: none;
+        }
+    }
 
+    .text-animation {
+        display: flex;
+        justify-content: start;
+        background: #fff;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    .text-animation > h1 {
+        font-size: 35px;
+        text-transform: uppercase;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-color: #ccc;
+        -webkit-text-stroke-width: 1px;
+        text-stroke-color: #ccc;
+        white-space: nowrap;
+        animation: move-rtl 25s linear infinite;
+    }
+    .text-animation > h1 > span {
+        letter-spacing: 26px;
+        padding: 0 50px;
+    }
+    @keyframes move-rtl {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
 
-.hamburger { @apply flex self-center flex-col justify-between w-9 h-7 pt-1 pb-1;
-  span { @apply self-end w-full bg-white transition-all duration-300 ease-in-out ~'h-0.5'; }
-  .meat { @apply ~'w-10/12' transition-all duration-150 ease-in-out; }
-  .bottom-bun { @apply ~'w-7/12'; }
-  &:hover span { @apply w-full; }
-  &.active {
-    .top-bun { @apply w-full -rotate-45 ~'translate-y-[0.6rem]'; }
-    .bottom-bun { @apply w-full rotate-45 ~'-translate-y-[0.5rem]'; }
-    .meat { @apply w-0; }
-    &:hover { @apply transition-transform duration-300 hover:rotate-90 ease-in-out; }
-  }
-  &:not(.active):hover {
-    .top-bun { @apply animate-burger-hover-2; }
-    .meat { @apply animate-burger-hover-4; }
-    .bottom-bun { @apply animate-burger-hover-6; }
-  }
-}
-
-.hamburger-arrow { @apply relative w-9 h-6;
-  span { @apply absolute w-full ~'h-0.5' left-0 rounded-sm bg-white transition-all duration-300 ease-in-out;
-    &.top-bun { @apply top-0; }
-    &.bottom-bun { @apply bottom-0;}
-  }
-  &.active span{
-    &.top-bun { @apply w-4 top-6 rotate-45 ~'-translate-x-[0.13rem] -translate-y-[0.4rem]'; }
-    &.meat { @apply w-3/4 rotate-180; }
-    &.bottom-bun { @apply w-4 bottom-6 -rotate-45 ~'-translate-x-[0.13rem] translate-y-[0.55rem]'; }
-  }
+    .mobile-menu.active > div {
+        transform: translateX(0);
+    }
+    .sub-menu.active {
+        height: 100%;
+    }
 }

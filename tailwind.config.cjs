@@ -1,13 +1,13 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./*.html'],
+  content: ['./index.html'],
   safelist: ['!border', '!border-solid', '!border-teal-900', '!bg-white', '!text-teal-900', 'hover:!bg-none', 'right-0', 'opacity-50'],
   theme: {
     fontFamily: {
-      'sans': ['Plus Jakarta Sans', ...defaultTheme.fontFamily.sans],
-      'serif': ['Playfair Display', ...defaultTheme.fontFamily.serif],
-    },
+      primary: ["Cormorant"],
+      secondary: ["Rubik"],
+  },
     screens: {
       sm: '640px',
       md: '768px',
